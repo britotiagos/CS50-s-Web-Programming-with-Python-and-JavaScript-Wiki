@@ -1,0 +1,17 @@
+<!-- prettier-ignore -->
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+<h1>Editing {{title}}</h1>
+
+<form method="POST">
+  {% csrf_token %}
+  <div class="entry__wrapper">
+    <textarea name="content" id="content" cols="30" rows="10">
+      {{content}}
+    </textarea>
+   <button class="btn btn-primary" type="submit">Create</button>
+  </div>
+</form>
+
+{% endblock %}

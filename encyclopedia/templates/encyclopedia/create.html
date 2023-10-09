@@ -1,0 +1,28 @@
+
+{% extends "encyclopedia/layout.html" %}
+{% block title %} {{title}}{%endblock %} 
+
+{% block body %}
+<h1>Creating a new WIKI</h1>
+
+{%if message%}
+  <div class="alert alert-danger" style="text-align: center;" role="alert">
+    {{message}}
+   <a href="{% url 'entry' title %}">Check it here</a>
+  </div>
+  {%endif%}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" type="text" name="title" id="title">
+    </div>
+    <div class="form-group">
+        <label for="content">Content</label>
+        <textarea class="form-control" name="content" id="content" cols="30" rows="10"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Create</button>
+
+
+{% endblock %}
